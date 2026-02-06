@@ -7,6 +7,9 @@ const app = express();
 
 import dotenv from "dotenv";
 
+import authRoutes from "./routes/auth.routes.js";
+
+
 dotenv.config({ quiet: true });
 
 const frontUrl = process.env.FRONT_URL;
@@ -23,8 +26,14 @@ app.use(
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
-        connectSrc: ["'self'", frontUrl],
-        scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
+        connectSrc: ["'self'", frontUrl, "https://accounts.google.com"],
+        scriptSrc: [
+          "'self'",
+          "'unsafe-inline'",
+          "'unsafe-eval'",
+          "https://accounts.google.com",
+        ],
+        frameSrc: ["'self'", "https://accounts.google.com"],
         styleSrc: ["'self'", "'unsafe-inline'"],
       },
     },
@@ -33,5 +42,7 @@ app.use(
 
 app.use(express.json());
 app.use(cookieparser());
+
+app.use("/api/auth", authRoutes);
 
 export default app;
