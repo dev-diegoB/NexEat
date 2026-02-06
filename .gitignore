@@ -1,0 +1,4 @@
+# Variables de entorno
+FrontEnd/.env
+BackEnd/.env
+BackEnd/node_modules/
