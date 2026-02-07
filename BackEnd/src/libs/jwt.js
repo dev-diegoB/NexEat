@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-dotenv.config();
+dotenv.config({ quiet: true });
 const TOKEN_SECRET = process.env.JWT_SECRET;
 
 import jwt from "jsonwebtoken";

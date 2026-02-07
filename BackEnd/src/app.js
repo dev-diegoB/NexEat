@@ -8,7 +8,7 @@ const app = express();
 import dotenv from "dotenv";
 
 import authRoutes from "./routes/auth.routes.js";
-
+import categoryRoutes from "./routes/category.routes.js";
 
 dotenv.config({ quiet: true });
 
@@ -44,5 +44,6 @@ app.use(express.json());
 app.use(cookieparser());
 
 app.use("/api/auth", authRoutes);
+app.use("/api/categories", categoryRoutes);
 
 export default app;
