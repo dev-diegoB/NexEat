@@ -1,12 +1,17 @@
 import { AuthProvider } from "./AuthContext";
 import { CategoryProvider } from "./CategoryContext";
 import { ProductProvider } from "./ProductContext";
+import { TableProvider } from "./TableContext";
 
 function ContextContainer({ children }) {
   return (
     <AuthProvider>
       <CategoryProvider>
-        <ProductProvider>{children}</ProductProvider>
+        <ProductProvider>
+          <TableProvider>
+            {children}
+          </TableProvider>
+        </ProductProvider>
       </CategoryProvider>
     </AuthProvider>
   );

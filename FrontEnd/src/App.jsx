@@ -1,13 +1,18 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Product from "./test/Product";
+import Table from "./test/Table";
 import Login from "./test/login";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter
+      future={{
+        v7_startTransition: true,
+        v7_relativeSplatPath: true,
+      }}
+    >
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/test" element={<Product />} />
+        <Route path="/test" element={<Table />} />
       </Routes>
     </BrowserRouter>
   );

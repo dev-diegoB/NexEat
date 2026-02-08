@@ -10,6 +10,7 @@ import dotenv from "dotenv";
 import authRoutes from "./routes/auth.routes.js";
 import categoryRoutes from "./routes/category.routes.js";
 import productRoutes from "./routes/product.routes.js";
+import tableRoutes from "./routes/table.routes.js";
 
 dotenv.config({ quiet: true });
 
@@ -47,5 +48,6 @@ app.use(cookieparser());
 app.use("/api/auth", authRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/products", productRoutes);
+app.use("/api/tables", tableRoutes);
 
 export default app;
